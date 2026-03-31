@@ -43,3 +43,32 @@ function saveTeam() {
 
   alert("Team saved!");
 }
+
+function updateLeaderboard() {
+  db.collection("teams").onSnapshot(snapshot => {
+    let data = [];
+
+    snapshot.forEach(doc => {
+      let team = doc.data();
+
+      // SIMPLE RANDOM POINTS (replace with real API later)
+      team.points = Math.floor(Math.random() * 500);
+
+      data.push({
+        name: doc.id,
+        points: team.points
+      });
+    });
+
+    data.sort((a, b) => b.points - a.points);
+
+    const board = document.getElementById("leaderboard");
+    board.innerHTML = "";
+
+    data.forEach((t, i) => {
+      board.innerHTML += `<p>#${i+1} ${t.name} - ${t.points} pts</p>`;
+    });
+  });
+}
+
+updateLeaderboard();
