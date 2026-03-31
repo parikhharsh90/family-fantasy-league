@@ -8,18 +8,44 @@
 
 <h1>🏏 Family Fantasy League</h1>
 
-<input id="username" placeholder="Enter your name" />
+<input id="username" placeholder="Enter your name">
 
-<h2>Select 11 Players</h2>
+<!-- League -->
+<button onclick="createLeague()">Create League</button>
+<input id="leagueCode" placeholder="Enter League Code">
+<button onclick="joinLeague()">Join League</button>
+
+<!-- Match Selection -->
+<h2>Select Match</h2>
+<div id="matches"></div>
+
+<h2 id="matchTitle"></h2>
+
+<!-- Credits -->
+<h3>Credits Left: <span id="creditsLeft">100</span></h3>
+
+<!-- Players -->
 <div id="players"></div>
+
+<!-- Captain -->
+<h3>Captain</h3>
+<select id="captain"></select>
+
+<h3>Vice Captain</h3>
+<select id="viceCaptain"></select>
 
 <button onclick="saveTeam()">Save Team</button>
 
+<!-- Leaderboard -->
 <h2>🏆 Leaderboard</h2>
 <div id="leaderboard"></div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
 <script src="firebase.js"></script>
 <script src="app.js"></script>
 
 </body>
+</html>
 </html>
